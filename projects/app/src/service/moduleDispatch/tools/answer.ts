@@ -6,7 +6,6 @@ export type AnswerProps = ModuleDispatchProps<{
   text: string;
 }>;
 export type AnswerResponse = {
-  [TaskResponseKeyEnum.answerText]: string;
   finish: boolean;
 };
 
@@ -23,13 +22,12 @@ export const dispatchAnswer = (props: Record<string, any>): AnswerResponse => {
       res,
       event: detail ? sseResponseEventEnum.answer : undefined,
       data: textAdaptGptResponse({
-        text: text.replace?.(/\\n/g, '\n') || ''
+        text
       })
     });
   }
 
   return {
-    [TaskResponseKeyEnum.answerText]: text,
     finish: true
   };
 };

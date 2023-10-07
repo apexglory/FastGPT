@@ -4,23 +4,36 @@
 
 # FastGPT
 
+<p align="center">
+  <a href="./README_en.md">English</a> |
+  <a href="./README.md">简体中文</a>
+</p>
+
 FastGPT 是一个基于 LLM 大语言模型的知识库问答系统，提供开箱即用的数据处理、模型调用等能力。同时可以通过 Flow 可视化进行工作流编排，从而实现复杂的问答场景！
 
 </div>
 
 <p align="center">
-  <a href="https://fastgpt.run/">线上体验</a>
-  ·
-  <a href="https://doc.fastgpt.run/docs/intro">相关文档</a>
-  ·
-  <a href="https://doc.fastgpt.run/docs/development">本地开发</a>
-  ·
-  <a href="https://github.com/labring/FastGPT#-%E7%9B%B8%E5%85%B3%E9%A1%B9%E7%9B%AE">相关项目</a>
+  <a href="https://fastgpt.run/">
+    <img height="21" src="https://img.shields.io/badge/在线使用-fff?style=flat-square&logo=spoj&logoColor=7d09f1" alt="cloud">
+  </a>
+  <a href="https://doc.fastgpt.run/docs/intro">
+    <img height="21" src="https://img.shields.io/badge/相关文档-7d09f1?style=flat-square" alt="document">
+  </a>
+  <a href="https://doc.fastgpt.run/docs/development">
+    <img height="21" src="https://img.shields.io/badge/本地开发-%23fff?style=flat-square&logo=xcode&logoColor=7d09f1" alt="development">
+  </a>
+  <a href="/#-%E7%9B%B8%E5%85%B3%E9%A1%B9%E7%9B%AE">
+    <img height="21" src="https://img.shields.io/badge/相关项目-7d09f1?style=flat-square" alt="project">
+  </a>
+  <a href="https://github.com/labring/FastGPT/blob/main/LICENSE">
+    <img height="21" src="https://img.shields.io/badge/License-Apache--2.0-ffffff?style=flat-square&labelColor=fff&color=7d09f1" alt="license">
+  </a>
 </p>
 
 https://github.com/labring/FastGPT/assets/15308462/7d3a38df-eb0e-4388-9250-2409bd33f6d4
 
-## 🛸 在线体验
+## 🛸 在线使用
 
 [fastgpt.run](https://fastgpt.run/)（服务器在新加坡，部分地区可能无法直连）
 
@@ -80,20 +93,14 @@ https://github.com/labring/FastGPT/assets/15308462/7d3a38df-eb0e-4388-9250-2409b
 * [部署 FastGPT](https://doc.fastgpt.run/docs/installation)
 * [系统配置文件说明](https://doc.fastgpt.run/docs/development/configuration/)
 * [多模型配置](https://doc.fastgpt.run/docs/installation/one-api/)
-* [版本升级](https://doc.fastgpt.run/docs/installation/upgrading)
-* [API 文档](https://doc.fastgpt.run/docs/development/openapi?pre_pathname=%2Fdrive%2Fhome%2F)
+* [版本更新/升级介绍](https://doc.fastgpt.run/docs/installation/upgrading)
+* [API 文档](https://doc.fastgpt.run/docs/development/openapi/)
 
 ## 🏘️ 社区交流群
 
 添加 wx 小助手加入：
 
 ![](https://otnvvf-imgs.oss.laf.run/wx300.jpg)
-
-## 👀 其他
-
-- [FastGPT 常见问题](https://kjqvjse66l.feishu.cn/docx/HtrgdT0pkonP4kxGx8qcu6XDnGh)
-- [docker 部署教程视频](https://www.bilibili.com/video/BV1jo4y147fT/)
-- [FastGPT 知识库演示](https://www.bilibili.com/video/BV1Wo4y1p7i1/)
 
 ## 💪 相关项目
 
@@ -102,10 +109,15 @@ https://github.com/labring/FastGPT/assets/15308462/7d3a38df-eb0e-4388-9250-2409b
 - [One API: 多模型管理，支持 Azure、文心一言等](https://github.com/songquanpeng/one-api)
 - [TuShan: 5 分钟搭建后台管理系统](https://github.com/msgbyte/tushan)
 
+## 👀 其他
+
+- [保姆级 FastGPT 教程](https://www.bilibili.com/video/BV1n34y1A7Bo/?spm_id_from=333.999.0.0)
+- [接入飞书](https://www.bilibili.com/video/BV1Su4y1r7R3/?spm_id_from=333.999.0.0)
+- [接入企微](https://www.bilibili.com/video/BV1Tp4y1n72T/?spm_id_from=333.999.0.0)
+
 ## 🤝 第三方生态
 
 - [OnWeChat 个人微信/企微机器人](https://doc.fastgpt.run/docs/use-cases/onwechat/)
-- [luolinAI: 企微机器人，开箱即用](https://github.com/luolin-ai/FastGPT-Enterprise-WeChatbot)
 
 ## 🌟 Star History
 
@@ -115,7 +127,7 @@ https://github.com/labring/FastGPT/assets/15308462/7d3a38df-eb0e-4388-9250-2409b
 
 本仓库遵循 [FastGPT Open Source License](./LICENSE) 开源协议。
 
-1. 允许作为后台服务直接商用，但不允许直接使用 saas 服务商用。
+1. 允许作为后台服务直接商用，但不允许直接使用 SaaS 服务商用。
 2. 需保留相关版权信息。
 3. 完整请查看 [FastGPT Open Source License](./LICENSE)
 4. 联系方式：yujinlong@sealos.io, [点击查看定价策略](https://doc.fastgpt.run/docs/commercial)

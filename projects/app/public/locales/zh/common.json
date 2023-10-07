@@ -96,6 +96,7 @@
       "module question": "问题",
       "module quoteList": "引用内容",
       "module runningTime": "运行时长",
+      "module search response": "搜索结果",
       "module similarity": "相似度",
       "module temperature": "温度",
       "module time": "运行时长",
@@ -237,7 +238,7 @@
     "key tips": "你可以使用 API 秘钥访问一些特定的接口"
   },
   "outlink": {
-    "Copy Iframe": "复制嵌入",
+    "Copy Iframe": "嵌入网页",
     "Copy Link": "复制",
     "Create API Key": "创建新 Key",
     "Create Link": "创建链接",
