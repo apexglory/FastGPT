@@ -121,14 +121,13 @@ export async function getInitConfig() {
     if (global.feConfigs) return;
 
     getSystemVersion();
-
+    console.log(`Current working directory: ${process.cwd()}`);
     const filename =
-      process.env.NODE_ENV === 'development' ? 'data/config.local.json' : '/app/data/config.json';
+      process.env.NODE_ENV === 'development' ? 'data/config.json' : '/app/data/config.json';
     const res = JSON.parse(readFileSync(filename, 'utf-8'));
-
     console.log(`System Version: ${global.systemVersion}`);
 
-    console.log(res);
+    // console.log(res);
 
     global.systemEnv = res.SystemParams
       ? { ...defaultSystemEnv, ...res.SystemParams }
