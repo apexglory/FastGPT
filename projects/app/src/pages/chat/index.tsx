@@ -72,6 +72,7 @@ const Chat = ({ appId, chatId }: { appId: string; chatId: string }) => {
           appId,
           chatId: completionChatId
         },
+        // isShadow: true,
         onMessage: generatingMessage,
         abortSignal: controller
       });

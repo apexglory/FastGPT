@@ -4,6 +4,7 @@ import MyRadio from '@/components/Radio/index';
 import dynamic from 'next/dynamic';
 
 import ManualImport from './Import/Manual';
+import PdfImport from '@/pages/kb/detail/components/Import/Pdf';
 
 const ChunkImport = dynamic(() => import('./Import/Chunk'), {
   ssr: true
@@ -19,7 +20,8 @@ enum ImportTypeEnum {
   manual = 'manual',
   index = 'index',
   qa = 'qa',
-  csv = 'csv'
+  csv = 'csv',
+  pdf = 'pdf'
 }
 
 const ImportData = ({ kbId }: { kbId: string }) => {
@@ -63,6 +65,12 @@ const ImportData = ({ kbId }: { kbId: string }) => {
               title: 'CSV 导入',
               desc: '批量导入问答对，是最精准的数据',
               value: ImportTypeEnum.csv
+            },
+            {
+              icon: 'pdf',
+              title: 'PDF 转换',
+              desc: '定制模型，精准分析PDF文件',
+              value: ImportTypeEnum.pdf
             }
           ]}
           value={importType}
@@ -75,6 +83,7 @@ const ImportData = ({ kbId }: { kbId: string }) => {
         {importType === ImportTypeEnum.index && <ChunkImport kbId={kbId} />}
         {importType === ImportTypeEnum.qa && <QAImport kbId={kbId} />}
         {importType === ImportTypeEnum.csv && <CsvImport kbId={kbId} />}
+        {importType === ImportTypeEnum.pdf && <PdfImport kbId={kbId} />}
       </Box>
     </Flex>
   );

@@ -10,31 +10,48 @@ interface StreamFetchProps {
   data: Record<string, any>;
   onMessage: StartChatFnProps['generatingMessage'];
   abortSignal: AbortController;
+  isShadow?: boolean;
 }
+
 export const streamFetch = ({
   url = '/api/v1/chat/completions',
   data,
   onMessage,
-  abortSignal
+  abortSignal,
+  isShadow
 }: StreamFetchProps) =>
   new Promise<{
     responseText: string;
     [TaskResponseKeyEnum.responseData]: ChatHistoryItemResType[];
   }>(async (resolve, reject) => {
     try {
-      const response = await window.fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          token: getToken()
-        },
-        signal: abortSignal.signal,
-        body: JSON.stringify({
-          ...data,
-          detail: true,
-          stream: true
-        })
-      });
+      let response: any;
+      if (isShadow) {
+        response = await window.fetch('http://127.0.0.1:5000/user_query', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            user_input: data.messages[0].content,
+            kb_name: 'test_kb'
+          })
+        });
+      } else {
+        response = await window.fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            token: getToken()
+          },
+          signal: abortSignal.signal,
+          body: JSON.stringify({
+            ...data,
+            detail: true,
+            stream: true
+          })
+        });
+      }
 
       if (!response?.body) {
         throw new Error('Request Error');
@@ -66,7 +83,7 @@ export const streamFetch = ({
             }
           }
           const chunkResponse = parseStreamChunk(value);
-
+          console.log('chunkResponse', chunkResponse);
           chunkResponse.forEach((item) => {
             // parse json data
             const { eventName, data } = parseData.parse(item);

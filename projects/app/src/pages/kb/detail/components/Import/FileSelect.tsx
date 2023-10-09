@@ -43,6 +43,7 @@ interface Props extends BoxProps {
   tipText?: string;
   chunkLen?: number;
   isCsv?: boolean;
+  isPdf?: boolean;
   showUrlFetch?: boolean;
   showCreateFile?: boolean;
 }

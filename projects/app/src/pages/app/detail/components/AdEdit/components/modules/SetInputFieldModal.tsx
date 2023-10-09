@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 import { customAlphabet } from 'nanoid';
+
 const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz1234567890', 6);
 import MyModal from '@/components/MyModal';
 import Avatar from '@/components/Avatar';
@@ -47,6 +48,7 @@ const SetInputFieldModal = ({
     type: FlowInputItemTypeEnum.target,
     valueType: FlowValueTypeEnum.string,
     description: '',
+    value: '',
     required: false
   },
   onClose,
@@ -99,6 +101,10 @@ const SetInputFieldModal = ({
             placeholder="appointment/sql"
             {...register('key', { required: '字段 key 不能为空' })}
           />
+        </Flex>
+        <Flex mt={5} alignItems={'center'}>
+          <Box flex={'0 0 70px'}>默认值</Box>
+          <Input placeholder="默认值" {...register('value')} />
         </Flex>
       </ModalBody>
 

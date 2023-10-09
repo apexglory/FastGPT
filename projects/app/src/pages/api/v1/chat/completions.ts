@@ -342,6 +342,7 @@ export async function dispatchModules({
     runningTime = time;
     chatAnswerText += answerText;
   }
+
   function moduleInput(
     module: RunningModuleItemType,
     data: Record<string, any> = {}
@@ -370,6 +371,7 @@ export async function dispatchModules({
       })
     );
   }
+
   function moduleOutput(
     module: RunningModuleItemType,
     result: Record<string, any> = {}
@@ -394,6 +396,7 @@ export async function dispatchModules({
       })
     );
   }
+
   async function moduleRun(module: RunningModuleItemType): Promise<any> {
     if (res.closed) return Promise.resolve();
 
@@ -465,7 +468,7 @@ function loadModules(
       flowType: module.flowType,
       showStatus: module.showStatus,
       inputs: module.inputs
-        .filter((item) => item.connected) // filter unconnected target input
+        .filter((item) => item.connected || item.value) // filter unconnected target input
         .map((item) => {
           if (typeof item.value !== 'string') {
             return {

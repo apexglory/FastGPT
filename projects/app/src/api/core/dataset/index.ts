@@ -24,6 +24,17 @@ export const getDatasetById = (id: string) => GET<DatasetItemType>(`/core/datase
 export const postCreateDataset = (data: CreateDatasetParams) =>
   POST<string>(`/core/dataset/create`, data);
 
+export const postCreateDatasetShadow = (data: CreateDatasetParams) =>
+  POST<string>(
+    `http://127.0.0.1:5000/create_knowledge_base`,
+    { name: data.name },
+    {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    }
+  );
+
 export const putDatasetById = (data: DatasetUpdateParams) => PUT(`/core/dataset/update`, data);
 
 export const delDatasetById = (id: string) => DELETE(`/core/dataset/delete?id=${id}`);

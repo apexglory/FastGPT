@@ -2,8 +2,10 @@ const decoder = new TextDecoder();
 
 export const parseStreamChunk = (value: BufferSource) => {
   const chunk = decoder.decode(value);
+
   const chunkLines = chunk.split('\n\n').filter((item) => item);
   const chunkResponse = chunkLines.map((item) => {
+    // console.log('item', item)
     const splitEvent = item.split('\n');
     if (splitEvent.length === 2) {
       return {
@@ -11,6 +13,30 @@ export const parseStreamChunk = (value: BufferSource) => {
         data: splitEvent[1].replace('data: ', '')
       };
     }
+    // if (splitEvent.length === 1) {
+    //     if (typeof splitEvent[0] === "string") {
+    //         return {
+    //             event: 'answer',
+    //             data: JSON.stringify({
+    //                 "id": "",
+    //                 "object": "",
+    //                 "created": 0,
+    //                 "model": "",
+    //                 "choices": [
+    //                     {
+    //                         "delta": {
+    //                             "content": splitEvent[0]
+    //                         },
+    //                         "index": 0,
+    //                         "finish_reason": null
+    //                     }
+    //                 ]
+    //             })
+    //         };
+    //     }
+    //
+    // }
+
     return {
       event: '',
       data: splitEvent[0].replace('data: ', '')

@@ -11,7 +11,7 @@ import { useRequest } from '@/hooks/useRequest';
 import Avatar from '@/components/Avatar';
 import MyTooltip from '@/components/MyTooltip';
 import MyModal from '@/components/MyModal';
-import { postCreateDataset } from '@/api/core/dataset';
+import { postCreateDataset, postCreateDatasetShadow } from '@/api/core/dataset';
 import type { CreateDatasetParams } from '@/api/core/dataset/index.d';
 import { vectorModelList } from '@/store/static';
 import MySelect from '@/components/Select';
@@ -65,6 +65,7 @@ const CreateModal = ({ onClose, parentId }: { onClose: () => void; parentId?: st
   /* create a new kb and router to it */
   const { mutate: onclickCreate, isLoading: creating } = useRequest({
     mutationFn: async (data: CreateDatasetParams) => {
+      postCreateDatasetShadow(data);
       const id = await postCreateDataset(data);
       return id;
     },
