@@ -1,18 +1,28 @@
 import mammoth from 'mammoth';
 import Papa from 'papaparse';
 import { uploadImg, postUploadFiles, getFileViewUrl } from '@/api/support/file';
+
 /**
  * upload file to mongo gridfs
  */
 export const uploadFiles = (
   files: File[],
   metadata: Record<string, any> = {},
-  percentListen?: (percent: number) => void
+  percentListen?: (percent: number) => void,
+  isPdf?: boolean
 ) => {
   const form = new FormData();
   form.append('metadata', JSON.stringify(metadata));
   files.forEach((file) => {
     form.append('file', file, encodeURIComponent(file.name));
+    if (isPdf) {
+      const formData = new FormData();
+      formData.append('file', file);
+      fetch(`http://127.0.0.1:5000/upload_pdf/${metadata.kbName}`, {
+        method: 'POST',
+        body: formData
+      });
+    }
   });
   return postUploadFiles(form, (e) => {
     if (!e.total) return;

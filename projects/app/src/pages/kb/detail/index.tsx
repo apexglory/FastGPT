@@ -189,7 +189,7 @@ const Detail = ({ kbId, currentTab }: { kbId: string; currentTab: `${TabEnum}` }
             <Box flex={'1 0 0'} h={'100%'} pb={[4, 0]}>
               {currentTab === TabEnum.dataset && <FileCard kbId={kbId} />}
               {currentTab === TabEnum.dataCard && <DataCard kbId={kbId} />}
-              {currentTab === TabEnum.import && <ImportData kbId={kbId} />}
+              {currentTab === TabEnum.import && <ImportData kbId={kbId} kbName={kbDetail.name} />}
               {currentTab === TabEnum.test && <Test kbId={kbId} />}
               {currentTab === TabEnum.info && <Info ref={InfoRef} kbId={kbId} form={form} />}
             </Box>

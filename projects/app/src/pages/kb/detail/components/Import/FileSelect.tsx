@@ -37,6 +37,7 @@ export type FileItemType = {
   icon: string;
   tokens: number;
 };
+
 interface Props extends BoxProps {
   fileExtension: string;
   onPushFiles: (files: FileItemType[]) => void;
@@ -114,15 +115,20 @@ const FileSelect = ({
               }
               return '';
             })(),
-            uploadFiles([file], { kbId: kbDetail._id }, (percent) => {
-              if (percent < 100) {
-                setSelectingText(
-                  t('file.Uploading', { name: file.name.slice(0, 20), percent }) || ''
-                );
-              } else {
-                setSelectingText(t('file.Parse', { name: file.name.slice(0, 20) }) || '');
-              }
-            })
+            uploadFiles(
+              [file],
+              { kbId: kbDetail._id, kbName: kbDetail.name },
+              (percent) => {
+                if (percent < 100) {
+                  setSelectingText(
+                    t('file.Uploading', { name: file.name.slice(0, 20), percent }) || ''
+                  );
+                } else {
+                  setSelectingText(t('file.Parse', { name: file.name.slice(0, 20) }) || '');
+                }
+              },
+              props.isPdf
+            )
           ]);
 
           if (text) {

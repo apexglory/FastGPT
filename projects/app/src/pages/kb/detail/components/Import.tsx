@@ -24,7 +24,7 @@ enum ImportTypeEnum {
   pdf = 'pdf'
 }
 
-const ImportData = ({ kbId }: { kbId: string }) => {
+const ImportData = ({ kbId, kbName }: { kbId: string; kbName: string }) => {
   const theme = useTheme();
   const [importType, setImportType] = useState<`${ImportTypeEnum}`>(ImportTypeEnum.manual);
   const TitleStyle: BoxProps = {
@@ -83,7 +83,7 @@ const ImportData = ({ kbId }: { kbId: string }) => {
         {importType === ImportTypeEnum.index && <ChunkImport kbId={kbId} />}
         {importType === ImportTypeEnum.qa && <QAImport kbId={kbId} />}
         {importType === ImportTypeEnum.csv && <CsvImport kbId={kbId} />}
-        {importType === ImportTypeEnum.pdf && <PdfImport kbId={kbId} />}
+        {importType === ImportTypeEnum.pdf && <PdfImport kbId={kbId} kbName={kbName} />}
       </Box>
     </Flex>
   );

@@ -15,7 +15,7 @@ import { chunksUpload } from '@/utils/web/core/dataset';
 
 const fileExtension = '.pdf';
 
-const PdfImport = ({ kbId }: { kbId: string }) => {
+const PdfImport = ({ kbId, kbName }: { kbId: string; kbName: string }) => {
   const { kbDetail } = useDatasetStore();
   const maxToken = kbDetail.vectorModel?.maxToken || 2000;
 
@@ -39,17 +39,6 @@ const PdfImport = ({ kbId }: { kbId: string }) => {
 
   const { mutate: onclickUpload, isLoading: uploading } = useMutation({
     mutationFn: async () => {
-      /*upload all files to http://127.0.0.1:5000/upload_pdf/test_kb*/
-
-      files.forEach((file: any) => {
-        const formData = new FormData();
-        formData.append('file', file.chunks);
-        fetch('http://127.0.0.1:5000/upload_pdf/test_kb', {
-          method: 'POST',
-          body: formData
-        });
-      });
-
       // mark the file is used
       await putMarkFilesUsed({ fileIds: files.map((file) => file.id) });
 
@@ -114,13 +103,13 @@ const PdfImport = ({ kbId }: { kbId: string }) => {
         <FileSelect
           fileExtension={fileExtension}
           /* tipText={
-            'file.If the imported file is garbled, please convert CSV to UTF-8 encoding format'
-          }*/
+                      'file.If the imported file is garbled, please convert CSV to UTF-8 encoding format'
+                    }*/
           onPushFiles={(files) => setFiles((state) => files.concat(state))}
           showUrlFetch={false}
           showCreateFile={false}
           py={emptyFiles ? '100px' : 5}
-          isPdf
+          isPdf={true}
         />
 
         {!emptyFiles && (
