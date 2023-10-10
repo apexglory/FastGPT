@@ -73,6 +73,14 @@ const defaultChatModels = [
     quoteMaxToken: 4000,
     maxTemperature: 1.2,
     price: 0
+  },
+  {
+    model: 'gpt-4-32k',
+    name: 'GPT4-32k',
+    contextMaxToken: 32000,
+    quoteMaxToken: 16000,
+    maxTemperature: 1.2,
+    price: 0
   }
 ];
 const defaultQAModel = {

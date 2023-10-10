@@ -31,6 +31,14 @@
       "maxTemperature": 1.2,
       "price": 0,
       "defaultSystem": ""
+    },
+    {
+      "model": "gpt-4-32k",
+      "name": "GPT4-32k",
+      "contextMaxToken": 32000,
+      "quoteMaxToken": 16000,
+      "maxTemperature": 1.2,
+      "price": 0
     }
   ],
   "VectorModels": [
