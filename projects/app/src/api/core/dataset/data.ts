@@ -64,7 +64,7 @@ export const postData2Dataset = (data: { kbId: string; data: DatasetDataItemType
  * 更新一条数据
  */
 export const putDatasetDataById = (data: UpdateDataPrams) =>
-  PUT('/core/dataset/data/updateData', data);
+  POST('/core/dataset/data/updateData', data);
 /**
  * 删除一条知识库数据
  */

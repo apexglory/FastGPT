@@ -68,7 +68,7 @@ export const postLogin = ({ username, password }: { username: string; password: 
 
 export const loginOut = () => GET('/user/account/loginout');
 
-export const putUserInfo = (data: UserUpdateParams) => PUT('/user/account/update', data);
+export const putUserInfo = (data: UserUpdateParams) => POST('/user/account/update', data);
 
 export const getUserBills = (data: RequestPaging) =>
   POST<PagingData<UserBillType>>(`/user/getBill`, data);

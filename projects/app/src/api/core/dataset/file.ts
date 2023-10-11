@@ -13,7 +13,7 @@ export const getFileInfoById = (fileId: string) =>
 export const delDatasetEmptyFiles = (kbId: string) =>
   DELETE(`/core/dataset/file/delEmptyFiles`, { kbId });
 
-export const updateDatasetFile = (data: UpdateFileProps) => PUT(`/core/dataset/file/update`, data);
+export const updateDatasetFile = (data: UpdateFileProps) => POST(`/core/dataset/file/update`, data);
 
 export const putMarkFilesUsed = (data: MarkFileUsedProps) =>
-  PUT(`/core/dataset/file/markUsed`, data);
+  POST(`/core/dataset/file/markUsed`, data);

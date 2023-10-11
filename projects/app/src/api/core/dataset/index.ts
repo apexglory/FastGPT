@@ -35,7 +35,7 @@ export const postCreateDatasetShadow = (data: CreateDatasetParams) =>
     }
   );
 
-export const putDatasetById = (data: DatasetUpdateParams) => PUT(`/core/dataset/update`, data);
+export const putDatasetById = (data: DatasetUpdateParams) => POST(`/core/dataset/update`, data);
 
 export const delDatasetById = (id: string) => DELETE(`/core/dataset/delete?id=${id}`);
 
