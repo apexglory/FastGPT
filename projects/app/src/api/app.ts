@@ -30,7 +30,7 @@ export const getModelById = (id: string) => GET<AppSchema>(`/app/detail?appId=${
  * 根据 ID 更新模型
  */
 export const putAppById = (id: string, data: AppUpdateParams) =>
-  PUT(`/app/update?appId=${id}`, data);
+  POST(`/app/update?appId=${id}`, data);
 
 /* 共享市场 */
 /**
