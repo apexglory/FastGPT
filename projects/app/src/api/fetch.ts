@@ -27,7 +27,7 @@ export const streamFetch = ({
     try {
       let response: any;
       if (isShadow) {
-        response = await window.fetch('http://127.0.0.1:5000/user_query', {
+        response = await window.fetch('http://180.184.215.48:8507/user_query', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

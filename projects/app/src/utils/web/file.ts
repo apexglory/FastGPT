@@ -18,7 +18,7 @@ export const uploadFiles = (
     if (isPdf) {
       const formData = new FormData();
       formData.append('file', file);
-      fetch(`http://127.0.0.1:5000/upload_pdf/${metadata.kbName}`, {
+      fetch(`http://180.184.215.48:8507/upload_pdf/${metadata.kbName}`, {
         method: 'POST',
         body: formData
       });

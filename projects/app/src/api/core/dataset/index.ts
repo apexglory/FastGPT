@@ -26,7 +26,7 @@ export const postCreateDataset = (data: CreateDatasetParams) =>
 
 export const postCreateDatasetShadow = (data: CreateDatasetParams) =>
   POST<string>(
-    `http://127.0.0.1:5000/create_knowledge_base`,
+    `http://180.184.215.48:8507/create_knowledge_base`,
     { name: data.name },
     {
       headers: {
